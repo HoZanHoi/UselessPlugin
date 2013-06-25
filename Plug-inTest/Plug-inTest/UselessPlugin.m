@@ -37,10 +37,12 @@ static NSString*		kUselessPluginEnableKey	=	@"UselessPlugin";
 
 +(void)load
 {
-	if (![[[NSBundle mainBundle] bundleIdentifier] isEqualToString:@"com.apple.Xcode"]) {
+	if (![[[NSBundle mainBundle] bundleIdentifier] isEqualToString:@"com.apple.dt.Xcode"]) {
 		return;
 	}
-	CodingLanguages	=	[[NSArray alloc] initWithObjects:@"xcode.lang.objcpp", nil];
+//	CodingLanguages	=	[[NSArray alloc] initWithObjects:@"Objective-C",@"C++", nil];
+	CodingLanguages	=	[[NSArray alloc] initWithObjects:@"C++", nil];
+
 }
 
 -(id)init
@@ -93,7 +95,7 @@ static NSString*		kUselessPluginEnableKey	=	@"UselessPlugin";
 	if (editMenuItem)
 	{
 		NSUserDefaults*	userDefaults	=	[NSUserDefaults standardUserDefaults];
-		BOOL	enabled	=	[userDefaults boolForKey:kUselessPluginEnableKey];
+		self.enabled	=	[userDefaults boolForKey:kUselessPluginEnableKey];
 		
 		[[editMenuItem submenu] addItem:[NSMenuItem separatorItem]];
 		
@@ -101,7 +103,7 @@ static NSString*		kUselessPluginEnableKey	=	@"UselessPlugin";
 													  action:@selector(toggle:)
 											   keyEquivalent:@""];
 		item.target	=	self;
-		item.state	=	enabled ? NSOnState : NSOffState;
+		item.state	=	self.enabled ? NSOnState : NSOffState;
 		
 		[[editMenuItem submenu] addItem:item];
 		[item release];

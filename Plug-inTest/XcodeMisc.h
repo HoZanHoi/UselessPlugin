@@ -13,8 +13,17 @@
 
 //Miscellaneous declarations pulled from class dumps of DVTFoundation, DVTKit, IDEFoundation, IDEKit
 @class DVTTextCompletionController;
+
+@interface DVTPlugInLocalizedString : NSString
+@end
+
+@interface DVTSourceCodeLanguage : NSObject
+@property(readonly) NSString *languageName;
+@end
+
 @interface DVTCompletingTextView : NSTextView
 @property(readonly) DVTTextCompletionController *completionController;
+@property(readonly) DVTSourceCodeLanguage *language;
 
 - (BOOL)shouldAutoCompleteAtLocation:(unsigned long long)arg1;
 - (NSRange)realSelectedRange;
@@ -26,6 +35,7 @@
 @end
 
 @interface DVTSourceTextView : DVTCompletingTextView
+-(id)language;
 @end
 
 
@@ -48,6 +58,13 @@
 - (BOOL)_showCompletionsAtCursorLocationExplicitly:(BOOL)arg1;
 - (BOOL)textViewShouldChangeTextInRange:(NSRange)arg1 replacementString:(id)replacementString;
 
+@end
+
+@interface DVTSourceTextStorage : NSTextStorage
+@end
+
+@interface DVTTextStorage : DVTSourceTextStorage
+-(id)language;
 @end
 
 #endif

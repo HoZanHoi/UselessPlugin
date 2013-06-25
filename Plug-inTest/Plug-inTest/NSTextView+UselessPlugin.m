@@ -13,23 +13,35 @@
 
 @implementation NSTextView (UselessPlugin)
 
+static NSString*	codingLanguageName	=	nil;
+
 +(void)load
 {
+	
 }
 
 -(void)swizzled_keyDown:(NSEvent*)event
 {
 	BOOL didInsert	=	NO;
-	if ([[UselessPlugin shared] enabled]) {
-		if ([[event characters] isEqualToString:@"`"])
+	if ([[UselessPlugin shared] enabled])
+	{
+		if ([self isKindOfClass:[DVTSourceTextView class]])
 		{
-			didInsert = [[UselessPlugin shared] insertArrowForTextView:self];
-			if (didInsert) {
-				if ([self isKindOfClass:[DVTSourceTextView class]])
+			if (codingLanguageName != [[[self textStorage] language] languageName])
+			{
+				codingLanguageName	=	[[[self textStorage] language] languageName];
+			}
+			if ([[[UselessPlugin shared] getLanguages] containsObject:codingLanguageName])
+			{
+				if ([[event characters] isEqualToString:@"`"])
 				{
-					if ([(DVTSourceTextView*)self completionController])
-					{
-						[[(DVTSourceTextView*)self completionController] _showCompletionsAtCursorLocationExplicitly:NO];
+					DVTSourceTextView*	sourceTextView = (DVTSourceTextView*)self;
+					didInsert = [[UselessPlugin shared] insertArrowForTextView:self];
+					if (didInsert) {
+						if ([sourceTextView completionController])
+						{
+							[[sourceTextView completionController] _showCompletionsAtCursorLocationExplicitly:NO];
+						}
 					}
 				}
 			}
