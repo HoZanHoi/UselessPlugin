@@ -11,8 +11,9 @@
 		F41AEE5D1772D28600283A27 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F41AEE5C1772D28600283A27 /* Cocoa.framework */; };
 		F41AEE671772D28600283A27 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = F41AEE651772D28600283A27 /* InfoPlist.strings */; };
 		F41AEE701772D82600283A27 /* UselessPlugin.m in Sources */ = {isa = PBXBuildFile; fileRef = F41AEE6F1772D82600283A27 /* UselessPlugin.m */; };
+		F445089217796B5100ECC3DC /* DVTKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F445089117796B5100ECC3DC /* DVTKit.framework */; };
+		F4BB5D07177978DD002BC974 /* DVTFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4BB5D06177978DD002BC974 /* DVTFoundation.framework */; };
 		F4ED6D43177458890066B295 /* MethodSwizzle.m in Sources */ = {isa = PBXBuildFile; fileRef = F4ED6D42177458890066B295 /* MethodSwizzle.m */; };
-		F4ED6D4A17745BEB0066B295 /* DVTKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4ED6D4917745BEB0066B295 /* DVTKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,9 +29,10 @@
 		F41AEE681772D28600283A27 /* Plug-inTest-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Plug-inTest-Prefix.pch"; sourceTree = "<group>"; };
 		F41AEE6E1772D82600283A27 /* UselessPlugin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UselessPlugin.h; sourceTree = "<group>"; };
 		F41AEE6F1772D82600283A27 /* UselessPlugin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UselessPlugin.m; sourceTree = "<group>"; };
+		F445089117796B5100ECC3DC /* DVTKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = DVTKit.framework; path = ../../../DVTKit.framework; sourceTree = "<group>"; };
+		F4BB5D06177978DD002BC974 /* DVTFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = DVTFoundation.framework; path = ../../../DVTFoundation.framework; sourceTree = "<group>"; };
 		F4ED6D41177458890066B295 /* MethodSwizzle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MethodSwizzle.h; sourceTree = "<group>"; };
 		F4ED6D42177458890066B295 /* MethodSwizzle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MethodSwizzle.m; sourceTree = "<group>"; };
-		F4ED6D4917745BEB0066B295 /* DVTKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = DVTKit.framework; path = ../../DVTKit.framework; sourceTree = "<group>"; };
 		F4ED6D4B17745D040066B295 /* XcodeMisc.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = XcodeMisc.h; path = ../XcodeMisc.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -39,7 +41,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F4ED6D4A17745BEB0066B295 /* DVTKit.framework in Frameworks */,
+				F4BB5D07177978DD002BC974 /* DVTFoundation.framework in Frameworks */,
+				F445089217796B5100ECC3DC /* DVTKit.framework in Frameworks */,
 				F41AEE5D1772D28600283A27 /* Cocoa.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -50,6 +53,7 @@
 		F41AEE501772D28600283A27 = {
 			isa = PBXGroup;
 			children = (
+				F4BB5D06177978DD002BC974 /* DVTFoundation.framework */,
 				F41AEE621772D28600283A27 /* Plug-inTest */,
 				F41AEE5B1772D28600283A27 /* Frameworks */,
 				F41AEE5A1772D28600283A27 /* Products */,
@@ -67,7 +71,7 @@
 		F41AEE5B1772D28600283A27 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				F4ED6D4917745BEB0066B295 /* DVTKit.framework */,
+				F445089117796B5100ECC3DC /* DVTKit.framework */,
 				F41AEE5C1772D28600283A27 /* Cocoa.framework */,
 				F41AEE5E1772D28600283A27 /* Other Frameworks */,
 			);
@@ -204,6 +208,7 @@
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				DEPLOYMENT_LOCATION = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
@@ -237,6 +242,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEPLOYMENT_LOCATION = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -257,6 +263,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/../..\"",
+					"\"$(SRCROOT)/../../..\"",
 				);
 				GCC_ENABLE_OBJC_GC = supported;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -277,6 +284,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/../..\"",
+					"\"$(SRCROOT)/../../..\"",
 				);
 				GCC_ENABLE_OBJC_GC = supported;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
