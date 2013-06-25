@@ -20,7 +20,7 @@
 -(void)swizzled_keyDown:(NSEvent*)event
 {
 	BOOL didInsert	=	NO;
-	if ([[UselessPlugin shared] actived]) {
+	if ([[UselessPlugin shared] enabled]) {
 		if ([[event characters] isEqualToString:@"`"])
 		{
 			didInsert = [[UselessPlugin shared] insertArrowForTextView:self];

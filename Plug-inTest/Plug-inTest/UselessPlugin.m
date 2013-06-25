@@ -80,10 +80,6 @@ static NSString*		kUselessPluginEnableKey	=	@"UselessPlugin";
 		return YES;
 	}
 	return NO;
-//	[textView.undoManager beginUndoGrouping];
-//	[[textView.undoManager prepareWithInvocationTarget:textView] replaceCharactersInRange:selectedRange
-//																			   withString:@"->"];
-//	[textView.undoManager endUndoGrouping];
 }
 
 - (NSArray*)getLanguages
@@ -119,23 +115,8 @@ static NSString*		kUselessPluginEnableKey	=	@"UselessPlugin";
     // Update menu item
     NSMenuItem *menuItem = (NSMenuItem *)sender;
     menuItem.state = self.enabled ? NSOnState : NSOffState;
-	
-    if(self.enabled) {
-        [self activate];
-    } else {
-        [self deactivate];
-    }
+
 	[[NSUserDefaults standardUserDefaults] setBool:self.enabled forKey:kUselessPluginEnableKey];
-}
-
-- (void)activate
-{
-	self.actived = YES;
-}
-
-- (void)deactivate
-{
-	self.actived = NO;
 }
 
 -(void)dealloc
