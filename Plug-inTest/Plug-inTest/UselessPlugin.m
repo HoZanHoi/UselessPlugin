@@ -125,6 +125,7 @@ static NSString*		kUselessPluginEnableKey	=	@"UselessPlugin";
     } else {
         [self deactivate];
     }
+	[[NSUserDefaults standardUserDefaults] setBool:self.enabled forKey:kUselessPluginEnableKey];
 }
 
 - (void)activate
